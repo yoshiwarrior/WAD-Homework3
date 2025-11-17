@@ -1,14 +1,13 @@
 <template>
   <div class="post">
     <div>
-      <img src="assets/img/user-avatar.png" width="32" height="32" /><span
-        >Basti</span
-      ><span>24/10/2025</span>
+      <img src="assets/img/user-avatar.png" width="32" height="32" /><span>{{
+        author
+      }}</span
+      ><span>{{ createdAt.toLocaleDateString() }}</span>
     </div>
-    <img
-      src="https://github.com/yoshiwarrior/WAD-Homework1/blob/main/assets/img/basti.gif?raw=1"
-    />
-    <p>ghg</p>
+    <img v-if="imageUrl" src="{{ imageUrl }}" />
+    <p v-if="content">{{ content }}</p>
     <img src="assets/img/facebook-like.png" width="32" height="32" />
   </div>
 </template>
