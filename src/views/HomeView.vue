@@ -1,6 +1,5 @@
 <template>
   <main>
-    <button @click="ResetLikes">reset likes</button>
     <PostElement
       v-for="(product, index) in GetPosts()"
       v-bind:key="index"
@@ -12,6 +11,7 @@
       :index="index"
     />
   </main>
+  <button @click="ResetLikes">reset likes</button>
 </template>
 
 <script>
@@ -32,3 +32,19 @@ export default {
   },
 };
 </script>
+
+<style>
+main {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+button {
+  background-color: cornflowerblue;
+  border-radius: 12px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 16px;
+  margin: 5px;
+}
+</style>

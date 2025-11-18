@@ -8,13 +8,15 @@
     </div>
     <img v-if="imageUrl" :src="imageUrl" />
     <p v-if="content">{{ content }}</p>
-    <img
-      src="@/assets/facebook-like.png"
-      width="32"
-      height="32"
-      @click="IncreaseLike"
-    />
-    <span>{{ likes }}</span>
+    <div>
+      <img
+        src="@/assets/facebook-like.png"
+        width="32"
+        height="32"
+        @click="IncreaseLike"
+      />
+      <span>{{ likes }} {{ likes === 1 ? "like" : "likes" }}</span>
+    </div>
   </div>
 </template>
 
@@ -39,3 +41,33 @@ export default {
   },
 };
 </script>
+
+<style>
+p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px;
+}
+
+.post {
+  border-radius: 12px;
+  background-color: #d8d8d8;
+  padding: 4px;
+  margin: 12px 0;
+}
+
+.post > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post > img:not(:nth-last-child(1)) {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+</style>

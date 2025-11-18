@@ -4,9 +4,6 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/signup">Sign Up</router-link>
     </nav>
-    <div>
-      <img src="@/assets/user-avatar.png" width="48px" height="48px" />
-    </div>
   </header>
 </template>
 
@@ -16,3 +13,31 @@ export default {
   props: {},
 };
 </script>
+
+<style>
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #bfbfbf;
+  border-radius: 16px;
+  margin: 8px 0;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+nav > a {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 0 4px;
+}
+
+nav > a:hover {
+  background: lightgrey;
+  border-radius: 4px;
+}
+</style>

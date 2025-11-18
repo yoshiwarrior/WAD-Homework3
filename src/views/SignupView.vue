@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is the signup page</h1>
     <SignUp />
   </div>
 </template>
@@ -15,3 +14,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.about {
+  min-height: calc(100vh - 192px);
+}
+</style>

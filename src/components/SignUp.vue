@@ -115,7 +115,7 @@ export default {
   margin: 5px;
   padding: 10px 0;
   resize: none;
-  height: 20px;
+  height: 36px;
 }
 
 .input_area {
