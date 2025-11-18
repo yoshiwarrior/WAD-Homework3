@@ -98,11 +98,11 @@ export default createStore({
     },
   },
   actions: {
-    resetLikes() {
-      this.$store.commit("RESET_LIKES");
+    resetLikes: (act) => {
+      act.commit("RESET_LIKES");
     },
-    addLike(index) {
-      this.$store.commit("ADD_LIKE", index);
+    addLike: (act, index) => {
+      act.commit("ADD_LIKE", index);
     },
   },
 });
