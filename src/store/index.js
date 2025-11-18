@@ -94,7 +94,7 @@ export default createStore({
       state.postList.forEach((post) => (post.likes = 0));
     },
     ADD_LIKE: (state, index) => {
-      state[index].likes++;
+      state.postList.at(index).likes++;
     },
   },
   actions: {
