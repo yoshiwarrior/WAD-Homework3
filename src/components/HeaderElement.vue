@@ -5,7 +5,7 @@
       <router-link to="/signup">Sign Up</router-link>
     </nav>
     <div>
-      <img src="assets/img/user-avatar.png" width="48px" height="48px" />
+      <img src="@/assets/user-avatar.png" width="48px" height="48px" />
     </div>
   </header>
 </template>
