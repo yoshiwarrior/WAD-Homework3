@@ -1,30 +1,37 @@
 <template>
   <form>
-    <div class="login">
-      <label><b>Welcome to PostIt</b></label>
-      <a href="/">Create an account</a>
-      <label>or</label>
-      <label>Please log in</label>
-      <textarea
-        name="femail"
-        id="login_email"
-        placeholder="Email"
-        required
-      ></textarea>
-      <textarea
-        name="fpassword"
-        id="login_password"
-        placeholder="Password"
-        required
-      ></textarea>
-      <p v-bind:key="error" v-for="error in this.errors">{{ error }}</p>
+    <div class="signup">
+      <div class="input_area">
+        <span>Email</span>
+        <textarea
+          class="text_area"
+          name="femail"
+          id="login_email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="input_area">
+        <span>Password</span>
+        <textarea
+          :value="password"
+          @input="(event) => (password = event.target.value)"
+          class="text_area"
+          name="fpassword"
+          id="login_password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <p class="error_message" v-bind:key="error" v-for="error in this.errors">
+        {{ error }}
+      </p>
       <input
         type="submit"
         class="submit_button"
-        value="Login"
+        value="Signup"
         @click.prevent="validatePassword"
       />
-      <a href="/">Forget password</a>
     </div>
   </form>
 </template>
@@ -51,7 +58,7 @@ export default {
           "\nPassword should include at least one uppercase alphabet character."
         );
       }
-      if (!password.match(/[a-z]/) || password.match(/[a-z]/)?.length < 2) {
+      if ((password.match(/[a-z]/g)?.length ?? 0) < 2) {
         this.errors.push(
           "Password should include at least two lowercase alphabet characters."
         );
@@ -65,7 +72,58 @@ export default {
       if (!password.match(/_/) || password.match(/_/).length < 1) {
         this.errors.push('Password should include the character "_".');
       }
+      if (this.errors.length > 0) {
+        this.errors = ["Password is invalid", ...this.errors];
+      }
     },
   },
 };
 </script>
+
+<style>
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkseagreen;
+  border-radius: 12px;
+  max-width: 300px;
+  padding: 4px;
+  margin: 0 auto;
+}
+
+.submit_button {
+  background-color: cornflowerblue;
+  border-radius: 12px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.error_message {
+  color: darkred;
+  margin: 5px;
+}
+
+.text_area {
+  background-color: ghostwhite;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  margin: 5px;
+  padding: 10px 0;
+  resize: none;
+  height: 20px;
+}
+
+.input_area {
+  flex-direction: row;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+</style>
